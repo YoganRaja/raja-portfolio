@@ -174,6 +174,9 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
                   src={pickyourtrailLogo} 
                   alt="Pickyourtrail Logo" 
                   className="w-full h-full object-contain rounded-lg"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/PYTlogo.png';
+                  }}
                 />
               </div>
               <div className="space-y-1 text-left">
@@ -195,6 +198,9 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
                   src={shanthiItLogo} 
                   alt="Shanthi IT Solution Logo" 
                   className="w-full h-full object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/SITlogo.png';
+                  }}
                 />
               </div>
               <div className="space-y-1 text-left">
@@ -241,6 +247,9 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
                           src={pickyourtrailLogo} 
                           alt="Pickyourtrail watermark" 
                           className="h-32 sm:h-40 md:h-48 w-auto object-contain rounded-2xl max-w-none transform -rotate-[18deg]" 
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/PYTlogo.png';
+                          }}
                         />
                       </div>
                     )}
@@ -252,6 +261,9 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
                           src={shanthiItLogo} 
                           alt="Shanthi IT watermark" 
                           className="h-28 sm:h-36 md:h-44 w-auto object-contain rounded-xl max-w-none transform -rotate-[18deg]" 
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/SITlogo.png';
+                          }}
                         />
                       </div>
                     )}
