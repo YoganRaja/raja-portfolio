@@ -169,13 +169,17 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
 
             {/* Floating Card 1: Pickyourtrail */}
             <div className="animate-float-slow bg-white/95 backdrop-blur-md p-5 sm:p-6 rounded-2xl shadow-xl border border-teal-100/90 flex items-center gap-4 hover:shadow-2xl transition-all duration-300 w-full max-w-sm sm:max-w-md transform hover:-translate-y-1">
-              <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-xl overflow-hidden shrink-0 shadow-md bg-[#00ba66] p-1 flex items-center justify-center">
+              <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-xl overflow-hidden shrink-0 shadow-md bg-white border border-slate-200 p-1 flex items-center justify-center">
                 <img 
                   src={pickyourtrailLogo} 
                   alt="Pickyourtrail Logo" 
                   className="w-full h-full object-contain rounded-lg"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/PYTlogo.png';
+                    const target = e.currentTarget;
+                    if (!target.dataset.fallback) {
+                      target.dataset.fallback = 'true';
+                      target.src = '/PYTlogo.png';
+                    }
                   }}
                 />
               </div>
@@ -199,7 +203,11 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
                   alt="Shanthi IT Solution Logo" 
                   className="w-full h-full object-contain"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/SITlogo.png';
+                    const target = e.currentTarget;
+                    if (!target.dataset.fallback) {
+                      target.dataset.fallback = 'true';
+                      target.src = '/SITlogo.png';
+                    }
                   }}
                 />
               </div>
@@ -248,7 +256,11 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
                           alt="Pickyourtrail watermark" 
                           className="h-32 sm:h-40 md:h-48 w-auto object-contain rounded-2xl max-w-none transform -rotate-[18deg]" 
                           onError={(e) => {
-                            (e.target as HTMLImageElement).src = '/PYTlogo.png';
+                            const target = e.currentTarget;
+                            if (!target.dataset.fallback) {
+                              target.dataset.fallback = 'true';
+                              target.src = '/PYTlogo.png';
+                            }
                           }}
                         />
                       </div>
@@ -262,7 +274,11 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
                           alt="Shanthi IT watermark" 
                           className="h-28 sm:h-36 md:h-44 w-auto object-contain rounded-xl max-w-none transform -rotate-[18deg]" 
                           onError={(e) => {
-                            (e.target as HTMLImageElement).src = '/SITlogo.png';
+                            const target = e.currentTarget;
+                            if (!target.dataset.fallback) {
+                              target.dataset.fallback = 'true';
+                              target.src = '/SITlogo.png';
+                            }
                           }}
                         />
                       </div>
