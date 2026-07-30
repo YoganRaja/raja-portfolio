@@ -127,7 +127,7 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
 
             {/* Subtitle */}
             <p className="text-slate-700 text-lg sm:text-xl md:text-2xl leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
-              Successfully managed 2,200+ URLs across IND/CE market regions, intent-based keyword mapping, 300+ URLs AEO/GEO (Answer Engine &amp; Generative Engine Optimization) zero-click validation, and{' '}
+              I managed SEO across 2,200+ URLs in IND/CE markets, mapped keywords to search intent, and validated 300+ URLs for AEO/GEO (zero-click readiness), and{' '}
               <a 
                 href="/projects" 
                 onClick={(e) => {
@@ -212,7 +212,7 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
       </section>
 
       {/* 3. Detailed Work Experience */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-10">
         <div className="border-b border-slate-200 pb-4">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#052049]">Career History</h2>
         </div>
@@ -234,56 +234,47 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
                       ? 'bg-gradient-to-r from-[#052049] via-[#0A2E63] to-[#00B8A9]' 
                       : 'bg-gradient-to-r from-[#1c2237] via-[#2a324d] to-[#FF5A5F]'
                   }`}>
-                    {/* Background Inclined PYT Logo Watermark */}
+                    {/* Background PYT Logo Watermark */}
                     {isPYT && (
-                      <div className="absolute -inset-y-4 right-[15%] sm:right-[20%] md:right-[24%] flex items-center justify-center pointer-events-none select-none opacity-20 z-0">
-                        <svg 
-                          viewBox="0 0 100 100" 
-                          className="h-[120%] w-auto transform -rotate-[30deg] text-white" 
-                          fill="currentColor"
-                        >
-                          <path 
-                            fillRule="evenodd" 
-                            clipRule="evenodd" 
-                            d="M 22 20 C 22 17 25 15 30 15 L 66 15 C 72 15 77 18 81 24 L 92 40 C 96 46 96 54 92 60 L 81 76 C 77 82 72 85 66 85 L 44 85 C 40 85 37 88 36 92 L 33 97 C 32 99 30 100 27 100 L 14 100 C 11 100 10 97 11 93 L 22 20 Z M 38 72 L 40 58 C 41 52 45 47 51 45 L 68 39 C 72 38 73 42 70 45 L 48 60 C 44 63 42 67 41 72 Z" 
-                          />
-                        </svg>
+                      <div className="absolute -right-4 sm:right-8 md:right-16 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none opacity-15 sm:opacity-20 z-0">
+                        <img 
+                          src={pickyourtrailLogo} 
+                          alt="Pickyourtrail watermark" 
+                          className="h-32 sm:h-40 md:h-48 w-auto object-contain rounded-2xl max-w-none transform -rotate-[18deg]" 
+                        />
                       </div>
                     )}
 
-                    {/* Background Inclined Popcoune Logo Watermark */}
+                    {/* Background Shanthi IT Logo Watermark */}
                     {isPopcoune && (
-                      <div className="absolute -inset-y-4 right-[15%] sm:right-[20%] md:right-[24%] flex items-center justify-center pointer-events-none select-none opacity-20 z-0">
-                        <svg 
-                          viewBox="0 0 100 100" 
-                          className="h-[120%] w-auto transform -rotate-[30deg] text-white" 
-                          fill="currentColor"
-                        >
-                          <path d="M 16 12 L 52 12 A 20 20 0 0 1 52 52 L 36 52 Z" />
-                          <rect x="16" y="52" width="36" height="36" />
-                        </svg>
+                      <div className="absolute -right-4 sm:right-8 md:right-16 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none opacity-15 sm:opacity-20 z-0">
+                        <img 
+                          src={shanthiItLogo} 
+                          alt="Shanthi IT watermark" 
+                          className="h-28 sm:h-36 md:h-44 w-auto object-contain rounded-xl max-w-none transform -rotate-[18deg]" 
+                        />
                       </div>
                     )}
 
                     <div className="relative z-10 space-y-3">
                       <div className="flex items-center justify-end">
-                        <span className="text-xs font-medium text-teal-100/90 tracking-wide">
+                        <span className="text-xs sm:text-sm font-medium text-teal-100/90 tracking-wide">
                           {exp.period}
                         </span>
                       </div>
 
-                      <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
                         {exp.company} <span className="text-teal-300 font-normal">|</span> <span className="text-teal-200 font-medium">{exp.role}</span>
                       </h3>
 
-                      <div className="flex flex-wrap items-center gap-4 text-xs text-white/90 font-medium pt-1">
+                      <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-white/90 font-medium pt-1">
                         <span className="flex items-center gap-1">
-                          <MapPin size={14} className="text-teal-300" />
+                          <MapPin size={16} className="text-teal-300" />
                           {exp.location}
                         </span>
                         <span>•</span>
                         <span className="flex items-center gap-1">
-                          <Briefcase size={14} className="text-teal-300" />
+                          <Briefcase size={16} className="text-teal-300" />
                           {isPYT ? '2,200+ URLs Mapped • 300+ AEO/GEO QA' : 'Paid Search & SERP Ranking'}
                         </span>
                       </div>
@@ -291,21 +282,21 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
                   </div>
 
                   {/* Body - Detailed Directives */}
-                  <div className="p-6 sm:p-8 space-y-8">
+                  <div className="p-6 sm:p-8 md:p-10 space-y-8">
 
                     {/* Bullet Points */}
                     <div className="space-y-4">
-                      <div className="space-y-3">
+                      <div className="space-y-3.5">
                         {exp.bullets.map((bullet, bulletIdx) => (
                           <div 
                             key={bulletIdx} 
-                            className="p-4 bg-white rounded-xl border border-slate-200/80 hover:border-[#00B8A9]/50 transition-all space-y-2 group"
+                            className="p-4 sm:p-5 bg-white rounded-xl border border-slate-200/80 hover:border-[#00B8A9]/50 transition-all space-y-2 group shadow-2xs"
                           >
-                            <div className="flex items-start gap-3">
-                              <span className="w-6 h-6 rounded-full bg-[#00B8A9]/10 text-[#00B8A9] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#00B8A9] group-hover:text-white transition-colors">
+                            <div className="flex items-start gap-3.5">
+                              <span className="w-7 h-7 rounded-full bg-[#00B8A9]/10 text-[#00B8A9] font-bold text-sm flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#00B8A9] group-hover:text-white transition-colors">
                                 {bulletIdx + 1}
                               </span>
-                              <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal text-justify">
+                              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
                                 {bullet}
                               </p>
                             </div>
@@ -316,15 +307,15 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
 
                     {/* Skills Tag Pills */}
                     {exp.skills && exp.skills.length > 0 && (
-                      <div className="pt-4 border-t border-slate-100 space-y-3">
-                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
+                      <div className="pt-5 border-t border-slate-100 space-y-3">
+                        <span className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider block">
                           Core Competencies
                         </span>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-2.5">
                           {exp.skills.map((skill, skillIdx) => (
                             <span 
                               key={skillIdx} 
-                              className="text-xs font-bold text-[#052049] bg-teal-50 border border-teal-200/60 hover:bg-[#00B8A9] hover:text-white px-3 py-1.5 rounded-lg transition-colors cursor-default"
+                              className="text-xs sm:text-sm font-bold text-[#052049] bg-teal-50 border border-teal-200/60 hover:bg-[#00B8A9] hover:text-white px-3.5 py-2 rounded-xl transition-colors cursor-default"
                             >
                               {skill}
                             </span>
@@ -377,7 +368,7 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
       </section>
 
       {/* 3.5 CTA Banner Card Before FAQ */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-2">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-2">
         <div className="bg-gradient-to-r from-slate-900 via-[#052049] to-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-800 select-none cursor-default relative overflow-hidden">
           <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-[#00B8A9]/20 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -411,7 +402,7 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
       </section>
 
       {/* 4. FAQ Section */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 space-y-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 space-y-6">
         <div className="border-b border-slate-200 pb-4">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#052049] flex items-center gap-2.5">
             <HelpCircle className="text-[#00B8A9]" size={28} />
@@ -431,7 +422,7 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
                   onClick={() => toggleFaq(idx)}
                   className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-slate-800 hover:text-[#00B8A9] transition-colors cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base text-[#052049] font-extrabold leading-snug">
+                  <span className="text-base sm:text-lg text-[#052049] font-extrabold leading-snug">
                     {faq.question}
                   </span>
                   <div className={`p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-500 transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180 bg-[#00B8A9]/10 text-[#00B8A9] border-[#00B8A9]/20' : ''}`}>
@@ -440,7 +431,7 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                  <div className="px-5 pb-5 pt-1 text-base sm:text-lg text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50">
                     {idx === 0 ? (
                       <>
                         Internships are where the real work happens for me. I've managed SEO across 2,200+ URLs and driven a 22% lift in bottom-funnel conversions in an active, ongoing role, not a shadowing program. Combined with an{' '}
@@ -501,7 +492,7 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
 
       {/* 5. Footer CTA */}
       <footer className="bg-white border-t border-slate-200 mt-16 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
             <div className="font-extrabold text-lg text-[#052049]">
               Ready to work with Raja Chera Kesaree?
@@ -538,7 +529,7 @@ export default function ExperienceSite({ onBack }: ExperienceSiteProps) {
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-400 font-mono gap-2">
+        <div className="max-w-7xl mx-auto border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-400 font-mono gap-2">
           <div>© {new Date().getFullYear()} {PERSONAL_INFO.fullName}</div>
           <div>Chennai, India • {PERSONAL_INFO.email}</div>
         </div>
