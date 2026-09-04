@@ -1,5 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@300;400;500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Outfit:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@300;400;500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Outfit:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700;800&family=Syne:wght@700;800;900&family=Unbounded:wght@700;800;900&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
+
+.finisher-header {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+}
+
+.finisher-header canvas#finisher-canvas {
+  pointer-events: none;
+  display: block !important;
+}
 
 @theme {
   --font-sans: "Roboto", "Google Sans Text", ui-sans-serif, system-ui, sans-serif;
@@ -60,11 +71,92 @@
   animation: rainbow-flow 1.5s linear infinite;
 }
 
+.finisher-header {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  background-color: #d88d10;
+  background-image: 
+    radial-gradient(circle at 10% 40%, rgba(130, 58, 0, 0.75) 0%, rgba(130, 58, 0, 0) 55%),
+    radial-gradient(circle at 85% 20%, rgba(255, 180, 0, 0.65) 0%, rgba(255, 180, 0, 0) 50%),
+    radial-gradient(circle at 90% 85%, rgba(235, 140, 0, 0.8) 0%, rgba(235, 140, 0, 0) 55%),
+    radial-gradient(circle at 45% 15%, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0) 60%),
+    linear-gradient(108deg, #8a4300 0%, #b86100 22%, #d88d10 48%, #ea9a00 75%, #f5a800 100%);
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+@keyframes google-ai-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-google-ai-spin {
+  animation: google-ai-spin 3.5s linear infinite;
+}
+
+.google-ai-conic {
+  background: conic-gradient(
+    from 0deg,
+    #4285f4 0deg,
+    #ea4335 90deg,
+    #fbbc05 180deg,
+    #34a853 270deg,
+    #4285f4 360deg
+  );
+}
+
 .animate-rainbow-active .rainbow-gradient {
   animation: rainbow-flow 1.5s linear infinite;
 }
 
-.animate-rainbow-flow {
-  animation: rainbow-flow 1.5s linear infinite;
+@keyframes shimmer-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
+
+.animate-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #60a5fa,
+    #818cf8,
+    #c084fc,
+    #f472b6,
+    #38bdf8,
+    #60a5fa
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-flow 4s ease infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.97);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3.5s ease-in-out infinite;
+}
+
+
+
 

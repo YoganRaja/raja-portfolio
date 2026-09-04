@@ -92,7 +92,7 @@ export default function AIOverview({ onNavigate }: AIOverviewProps) {
           <div className="flex items-center -space-x-1.5 mr-1 select-none">
             {/* LinkedIn Badge */}
             <a 
-              href="https://linkedin.com/in/raja-chera-kesaree-4aa858278" 
+              href={PERSONAL_INFO.linkedin} 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-6 h-6 rounded-full bg-[#0077b5] border border-[#1f1f1f] flex items-center justify-center text-[10px] font-bold text-white shadow hover:scale-110 hover:z-10 transition-transform cursor-pointer" 

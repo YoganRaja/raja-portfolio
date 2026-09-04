@@ -3,13 +3,12 @@ import { SearchTab, ExperienceItem, ProjectItem, SkillCategory, CertificationIte
 export const PERSONAL_INFO = {
   name: 'RAJA CHERA KESAREE',
   fullName: 'Raja Chera Kesaree',
-  title: 'SEO Specialist & Digital Marketer',
+  title: 'SEO Fresher & Digital Marketer',
   location: 'Chennai, India',
   email: 'yoganraja.126@gmail.com',
-  linkedin: 'https://linkedin.com/in/raja-chera-kesaree-4aa858278',
+  linkedin: 'https://www.linkedin.com/in/raja-chera-kesaree/',
   github: 'https://github.com/rajacherakesaree',
   twitter: 'https://twitter.com/raja_growth',
-  phone: '8870690397',
   bio: 'Enthusiastic Marketing Graduate skilled in On page, Off page & Technical SEO strategies, PPC, AB Testing branding, positioning and data analytics, with a keen eye for quality and delivering results. A strong problem solver with the eagerness to contribute to a dynamic marketing team to achieve the unified goal by executing detail oriented digital marketing practices to enhance content visibility, engagement and lead generation.',
   avatarUrl: '',
 };
@@ -17,7 +16,7 @@ export const PERSONAL_INFO = {
 export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     id: 'exp-1',
-    role: 'SEO Intern',
+    role: 'Search Engine Optimization Intern',
     company: 'Pickyourtrail',
     period: 'Oct 2025 to Present',
     location: 'Chennai, India',
@@ -51,7 +50,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     id: 'exp-2',
     role: 'Digital Marketing Intern',
     company: 'Shanthi IT Solutions',
-    period: 'July 2024 to September 2024',
+    period: 'Jul 2024 to Aug 2024',
     location: 'Chennai, India',
     bullets: [
       'Assisted in managing Paid search campaigns to drive conversions through the sales pipeline and maintain optimal ROI.',
@@ -77,31 +76,21 @@ export const PROJECTS_DATA: ProjectItem[] = [
     id: 'proj-2',
     title: 'Switzerland Destination SEO Growth Campaign',
     category: 'Subfolder & Content SEO',
-    metrics: '11.9K Clicks | 2.37M Impressions | 285 High Yield Keywords',
-    description: 'Executed an intensive destination subfolder SEO campaign targeting the "/packages/switzerland" path. Expanded organic rankings from 3.99K to 11.9K clicks (2.37M impressions) by aligning landing pages with commercial search intent, mapping high volume keywords, and resolving competing subfolder cannibalizations.',
+    metrics: '4.84K Clicks | 840K Impressions | 285 High Yield Keywords',
+    description: 'Executed an intensive destination subfolder SEO campaign targeting the "/packages/switzerland" path. Expanded organic rankings from 3.99K to 4.84K clicks (840K impressions) by aligning landing pages with commercial search intent, mapping high volume keywords, and resolving competing subfolder cannibalizations.',
     technologies: ['Semrush', 'GSC Page Filters', 'Keyword Mapping', 'On Page SEO'],
     link: 'https://pickyourtrail.com/packages/switzerland',
     dashboardType: 'gsc_switzerland'
   },
   {
     id: 'proj-6',
-    title: 'Generative AI & Search Engine Optimization (AEO/GEO)',
+    title: 'GEO/AEO Optimization',
     category: 'AI Search Visibility',
-    metrics: '42% Share of Voice on Gemini & Copilot | 12.4K Citations',
-    description: 'Developed an advanced Generative Engine Optimization (GEO) blueprint to secure brand citations in AI driven search models. Structured deep schema markups, integrated entity relationship graphs, and optimized long form answer formats, positioning the brand as an authoritative source in Gemini, ChatGPT, and perplexity answer engine queries.',
-    technologies: ['Gemini API', 'LLM Citation Auditing', 'Entity Graphing', 'Schema Markup'],
+    metrics: '42% Share of Voice on AI Engines | 12.4K Citations',
+    description: 'Developed an advanced Generative Engine Optimization (GEO) blueprint to secure brand citations in AI driven search models. Structured deep schema markups, integrated entity relationship graphs, and optimized long form answer formats, positioning the brand as an authoritative source in Jemini, ChatGPT, and perplexity answer engine queries.',
+    technologies: ['Jemini API', 'LLM Citation Auditing', 'Entity Graphing', 'Schema Markup'],
     link: '#',
     dashboardType: 'aeo_geo'
-  },
-  {
-    id: 'proj-3',
-    title: 'Competitor Keyword Gap & SERP Dominance',
-    category: 'Competitor Intelligence',
-    metrics: '18.7K Overlapping Keywords | 550K Vol/Mo Target Terms',
-    description: 'Conducted a comprehensive competitor keyword overlap analysis comparing Pickyourtrail against key market giants (MakeMyTrip, TravelTriangle, Thomas Cook, and Thrillophilia). Identified top organic search opportunities for premium travel terms like "baga beach", "udupi", and "hawa mahal" with 550,000+ monthly search volumes.',
-    technologies: ['Semrush Keyword Gap', 'Competitive Research', 'SERP Analysis', 'Content Strategy'],
-    link: 'https://pickyourtrail.com',
-    dashboardType: 'semrush_gap'
   },
   {
     id: 'proj-4',
@@ -112,16 +101,6 @@ export const PROJECTS_DATA: ProjectItem[] = [
     technologies: ['GA4 Property Setup', 'Google Tag Manager', 'Audience Definition', 'Funnel Tracking'],
     link: 'https://pickyourtrail.com',
     dashboardType: 'ga4_pyt'
-  },
-  {
-    id: 'proj-7',
-    title: 'Online Reputation Management & Brand Sentiment (ORM)',
-    category: 'Brand Defense & Reputation',
-    metrics: '94% Positive Brand Sentiment | 25+ Serp 1 Negative Links Suppressed',
-    description: 'Architected a comprehensive Online Reputation Management (ORM) strategy to protect and elevate corporate search visibility. Suppressed low sentiment discussion threads, established highly authoritative PR entities, and optimized review schema listings, securing the top tier brand narrative across critical SERP queries.',
-    technologies: ['SERP Domination', 'Power BI', 'PR Distribution', 'Brand Auditing', 'Review Schema'],
-    link: '#',
-    dashboardType: 'orm_rep'
   },
   {
     id: 'proj-8',
@@ -213,8 +192,8 @@ export const SEARCH_RESULTS: SearchResult[] = [
   {
     id: 'res-linkedin',
     title: 'Raja Chera Kesaree - SEO Specialist | Digital Marketer',
-    url: 'https://in.linkedin.com/in/raja-chera-kesaree-4aa858278',
-    breadcrumbs: 'LinkedIn India › raja-chera-kesaree-4aa858278',
+    url: 'https://www.linkedin.com/in/raja-chera-kesaree/',
+    breadcrumbs: 'LinkedIn › raja-chera-kesaree',
     snippet: 'SEO Specialist | On-page, Off-page & Technical SEO strategies, PPC, A/B Testing branding, positioning and data analytics. Currently transforming index visibility and organic growth journeys.',
     tab: SearchTab.ALL,
     sitelinks: [
@@ -245,7 +224,7 @@ export const SEARCH_RESULTS: SearchResult[] = [
     title: 'Technical Skills & Marketing Tools Stack',
     url: 'https://raja-chera-kesaree.netlify.app/skills',
     breadcrumbs: 'raja-chera-kesaree.netlify.app › skills › toolset',
-    snippet: 'A look at Raja\'s fully audited SEO stack: advanced Screaming Frog, Microsoft Clarity, Semrush, Looker Studio, Google Search Console, Surfer SEO, and GT metrix.',
+    snippet: 'A look at Raja\'s fully audited SEO stack: advanced Screaming Frog, Microsoft Clarity, Semrush, Data Studio, Google Search Console, Surfer SEO, and GT metrix.',
     tab: SearchTab.SKILLS
   },
   {
@@ -258,7 +237,7 @@ export const SEARCH_RESULTS: SearchResult[] = [
     sitelinks: [
       { 
         title: 'MBA in Marketing & Digital Strategy', 
-        description: 'SRM Easwari Engineering College (2023–2025). Major research thesis on E-Commerce Digital Marketing Tools & SERP Visibility.', 
+        description: 'SRM Easwari Engineering College (2023–2025). First Class. Paper Presented: "SIGNIFICANCE OF DIGITAL MARKETING TOOLS IN THE PROMOTION OF E-COMMERCE WEBSITES".', 
         tabTarget: SearchTab.EDUCATION,
         program: 'mba'
       },

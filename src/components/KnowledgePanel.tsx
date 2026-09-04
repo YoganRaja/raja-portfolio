@@ -1,14 +1,18 @@
-import { Mail, Linkedin, Globe, MapPin, GraduationCap, Award, Phone, ArrowUpRight } from 'lucide-react';
+import { Mail, Linkedin, Globe, MapPin, GraduationCap, Award, ArrowUpRight } from 'lucide-react';
 import { PERSONAL_INFO, CERTIFICATIONS } from '../data';
 
 interface KnowledgePanelProps {
   onSearchConcept: (concept: string) => void;
+  onOpenResumeModal?: () => void;
 }
 
-export default function KnowledgePanel({ onSearchConcept }: KnowledgePanelProps) {
+export default function KnowledgePanel({ onSearchConcept, onOpenResumeModal }: KnowledgePanelProps) {
   const handleDownloadCV = () => {
-    // Open print view which acts as standard export or trigger a professional visual print
-    window.print();
+    if (onOpenResumeModal) {
+      onOpenResumeModal();
+    } else {
+      window.print();
+    }
   };
 
   const peopleAlsoSearch = [
@@ -19,7 +23,7 @@ export default function KnowledgePanel({ onSearchConcept }: KnowledgePanelProps)
   ];
 
   return (
-    <div className="w-full lg:max-w-[368px] bg-[#171717] rounded-xl border border-[#303134] text-[#e8eaed] font-sans overflow-hidden sticky top-4">
+    <div className="w-full lg:max-w-[368px] bg-[#171717] rounded-xl border border-[#303134] text-[#e8eaed] font-sans overflow-hidden sticky top-24">
       {/* Visual Header Banner - Styled to represent search engine knowledge card */}
       <div className="h-28 bg-gradient-to-tr from-indigo-900 via-[#1f1f1f] to-slate-800 relative flex items-end p-4">
         <div className="absolute inset-0 bg-black/25"></div>
@@ -71,20 +75,15 @@ export default function KnowledgePanel({ onSearchConcept }: KnowledgePanelProps)
           </div>
 
           <div className="flex items-start gap-2">
-            <Phone size={16} className="text-gray-400 shrink-0 mt-0.5" />
-            <div>
-              <span className="text-gray-400">Phone: </span>
-              <a href={`tel:${PERSONAL_INFO.phone}`} className="text-[#8ab4f8] hover:underline font-sans">
-                {PERSONAL_INFO.phone}
-              </a>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-2">
             <Mail size={16} className="text-gray-400 shrink-0 mt-0.5" />
             <div>
               <span className="text-gray-400">E-mail: </span>
-              <a href={`mailto:${PERSONAL_INFO.email}`} className="text-[#8ab4f8] hover:underline font-sans">
+              <a 
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=yoganraja.126@gmail.com" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#8ab4f8] hover:underline font-sans"
+              >
                 {PERSONAL_INFO.email}
               </a>
             </div>

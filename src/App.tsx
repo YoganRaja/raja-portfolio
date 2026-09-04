@@ -7,6 +7,7 @@ import SkillsSite from './components/SkillsSite';
 import EducationSite from './components/EducationSite';
 import ContactSite from './components/ContactSite';
 import AiModeSite from './components/AiModeSite';
+import ResumeModal from './components/ResumeModal';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(() => {
@@ -18,6 +19,7 @@ export default function App() {
     const params = new URLSearchParams(window.location.search);
     return params.get('q') || 'RAJA CHERA KESAREE';
   });
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -80,10 +82,12 @@ export default function App() {
     }
   };
 
+  const handleOpenResumeModal = () => setIsResumeModalOpen(true);
+
   let viewComponent;
   switch (currentPath) {
     case '/':
-      viewComponent = <SearchHomepage onSearch={handleSearch} />;
+      viewComponent = <SearchHomepage onSearch={handleSearch} onOpenResumeModal={handleOpenResumeModal} />;
       break;
     case '/search':
       viewComponent = (
@@ -92,27 +96,28 @@ export default function App() {
           setSearchQuery={setSearchQuery}
           onNavigate={navigateTo}
           onReset={() => navigateTo('/')}
+          onOpenResumeModal={handleOpenResumeModal}
         />
       );
       break;
     case '/experience':
-      viewComponent = <ExperienceSite onBack={handleBack} />;
+      viewComponent = <ExperienceSite onBack={handleBack} onOpenResumeModal={handleOpenResumeModal} />;
       break;
     case '/projects':
-      viewComponent = <ProjectsSite onBack={handleBack} />;
+      viewComponent = <ProjectsSite onBack={handleBack} onOpenResumeModal={handleOpenResumeModal} />;
       break;
     case '/skills':
-      viewComponent = <SkillsSite onBack={handleBack} />;
+      viewComponent = <SkillsSite onBack={handleBack} onOpenResumeModal={handleOpenResumeModal} />;
       break;
     case '/education':
-      viewComponent = <EducationSite program={eduProgram} onBack={handleBack} onSwitchProgram={(p) => setEduProgram(p)} onNavigate={navigateTo} />;
+      viewComponent = <EducationSite program={eduProgram} onBack={handleBack} onSwitchProgram={(p) => setEduProgram(p)} onNavigate={navigateTo} onOpenResumeModal={handleOpenResumeModal} />;
       break;
     case '/contact':
       viewComponent = <ContactSite onBack={handleBack} />;
       break;
     case '/ai-mode':
     case '/ai_mode':
-      viewComponent = <AiModeSite onBack={handleBack} />;
+      viewComponent = <AiModeSite onBack={handleBack} onNavigate={navigateTo} />;
       break;
     default:
       const pathStr = currentPath || '';
@@ -123,28 +128,42 @@ export default function App() {
             setSearchQuery={setSearchQuery}
             onNavigate={navigateTo}
             onReset={() => navigateTo('/')}
+            onOpenResumeModal={handleOpenResumeModal}
           />
         );
       } else if (pathStr.includes('experience')) {
-        viewComponent = <ExperienceSite onBack={handleBack} />;
+        viewComponent = <ExperienceSite onBack={handleBack} onOpenResumeModal={handleOpenResumeModal} />;
       } else if (pathStr.includes('projects')) {
-        viewComponent = <ProjectsSite onBack={handleBack} />;
+        viewComponent = <ProjectsSite onBack={handleBack} onOpenResumeModal={handleOpenResumeModal} />;
       } else if (pathStr.includes('skills')) {
-        viewComponent = <SkillsSite onBack={handleBack} />;
+        viewComponent = <SkillsSite onBack={handleBack} onOpenResumeModal={handleOpenResumeModal} />;
       } else if (pathStr.includes('education')) {
-        viewComponent = <EducationSite program={eduProgram} onBack={handleBack} onSwitchProgram={(p) => setEduProgram(p)} onNavigate={navigateTo} />;
+        viewComponent = <EducationSite program={eduProgram} onBack={handleBack} onSwitchProgram={(p) => setEduProgram(p)} onNavigate={navigateTo} onOpenResumeModal={handleOpenResumeModal} />;
       } else if (pathStr.includes('contact')) {
         viewComponent = <ContactSite onBack={handleBack} />;
       } else if (pathStr.includes('ai-mode') || pathStr.includes('ai_mode')) {
-        viewComponent = <AiModeSite onBack={handleBack} />;
+        viewComponent = <AiModeSite onBack={handleBack} onNavigate={navigateTo} />;
       } else {
-        viewComponent = <SearchHomepage onSearch={handleSearch} />;
+        viewComponent = <SearchHomepage onSearch={handleSearch} onOpenResumeModal={handleOpenResumeModal} />;
       }
   }
 
   return (
     <div className="min-h-screen bg-[#1f1f1f]">
       {viewComponent}
+      <ResumeModal
+        isOpen={isResumeModalOpen}
+        onClose={() => setIsResumeModalOpen(false)}
+        theme={
+          currentPath.includes('experience')
+            ? 'experience'
+            : currentPath.includes('projects')
+            ? 'projects'
+            : currentPath.includes('education')
+            ? 'education'
+            : 'dark'
+        }
+      />
     </div>
   );
 }

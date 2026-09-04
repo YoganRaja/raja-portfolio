@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Mic, Camera, Plus, CornerDownLeft, Sparkles, FileText, Github, Linkedin, Briefcase, Cpu, Award, GraduationCap, Mail } from 'lucide-react';
 import { PERSONAL_INFO } from '../data';
-import VisitorModal from './VisitorModal';
+import { AiModeButton } from './AiModeButton';
+import { useVisitorLocation } from '../utils/location';
 
 interface SearchHomepageProps {
   onSearch: (query: string) => void;
+  onOpenResumeModal?: () => void;
 }
 
-export default function SearchHomepage({ onSearch }: SearchHomepageProps) {
+export default function SearchHomepage({ onSearch, onOpenResumeModal }: SearchHomepageProps) {
   const [query, setQuery] = useState('');
   const [isTypingComplete, setIsTypingComplete] = useState(false);
-  const [canStartTyping, setCanStartTyping] = useState(false);
   const [isAppsOpen, setIsAppsOpen] = useState(false);
   const [isAiMode, setIsAiMode] = useState(false);
+  const { country } = useVisitorLocation();
   const targetText = 'RAJA CHERA KESAREE';
 
   // Close apps dropdown on click outside
@@ -28,10 +30,8 @@ export default function SearchHomepage({ onSearch }: SearchHomepageProps) {
     return () => document.removeEventListener('click', handleOutsideClick);
   }, [isAppsOpen]);
 
-  // Typing animation - only plays after the popup modal is closed/dismissed
+  // Typing animation plays on home page load
   useEffect(() => {
-    if (!canStartTyping) return;
-    
     let index = 0;
     setQuery('');
     const typingInterval = setInterval(() => {
@@ -44,7 +44,7 @@ export default function SearchHomepage({ onSearch }: SearchHomepageProps) {
     }, 120); // Natural typing speed
 
     return () => clearInterval(typingInterval);
-  }, [canStartTyping]);
+  }, []);
 
   // No automatic search trigger. The user must manually click or press enter.
 
@@ -68,7 +68,9 @@ export default function SearchHomepage({ onSearch }: SearchHomepageProps) {
       <header className="flex justify-end items-center px-6 py-4 text-sm text-[#e8eaed]">
         <div className="flex items-center space-x-4">
           <a
-            href="mailto:yoganraja.126@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=yoganraja.126@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:underline cursor-pointer"
           >
             Gmail
@@ -107,10 +109,12 @@ export default function SearchHomepage({ onSearch }: SearchHomepageProps) {
               <div className="absolute right-0 top-12 mt-2 w-80 bg-[#303134] border border-[#4c4e52] rounded-3xl p-6 shadow-2xl z-50 animate-fade-in text-[#e8eaed]">
                 <div className="grid grid-cols-3 gap-y-6 gap-x-2">
                   {/* Resume */}
-                  <a
-                    href="https://raja-chera-kesaree.netlify.app/resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsAppsOpen(false);
+                      if (onOpenResumeModal) onOpenResumeModal();
+                    }}
                     className="flex flex-col items-center p-2 rounded-2xl hover:bg-white/10 transition-all cursor-pointer group text-center"
                     title="Download Resume"
                   >
@@ -118,7 +122,7 @@ export default function SearchHomepage({ onSearch }: SearchHomepageProps) {
                       <FileText size={24} />
                     </div>
                     <span className="text-xs text-gray-300 font-medium group-hover:text-white transition-colors">Resume</span>
-                  </a>
+                  </button>
 
                   {/* GitHub */}
                   <a
@@ -293,35 +297,11 @@ export default function SearchHomepage({ onSearch }: SearchHomepageProps) {
                 </div>
               </div>
 
-              {/* AI Mode integrated button */}
-              <div className="relative group flex items-center">
-                <div className="p-[1.5px] rounded-full relative overflow-hidden">
-                  {/* Gray border background layer (shown when not AI and not hovered) */}
-                  <div className={`absolute inset-0 rounded-full bg-gray-300 transition-opacity duration-300 ${
-                    isAiMode ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'
-                  }`}></div>
-                  
-                  {/* Rainbow border background layer (shown when AI mode is active OR when hovered) */}
-                  <div className={`absolute inset-0 rounded-full rainbow-gradient animate-rainbow-flow transition-opacity duration-300 ${
-                    isAiMode ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                  }`}></div>
-                  <button
-                    type="button"
-                    onClick={() => onSearch('ai-mode')}
-                    className={`relative z-10 px-3 py-1.5 rounded-full flex items-center space-x-1.5 shrink-0 select-none transition-colors ${
-                      isAiMode 
-                        ? 'bg-indigo-950 text-indigo-200' 
-                        : 'bg-white text-[#3c4043] group-hover:text-indigo-600'
-                    }`}
-                  >
-                    <Sparkles size={16} className={`transition-colors duration-300 ${isAiMode ? 'text-indigo-400 animate-pulse' : 'text-[#3c4043] group-hover:text-indigo-600'}`} />
-                    <span className={`text-xs font-semibold transition-colors duration-300 ${isAiMode ? 'text-indigo-200' : 'text-[#3c4043] group-hover:text-indigo-600'}`}>AI Mode</span>
-                  </button>
-                </div>
-                <div className="absolute top-full mt-1.5 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black border-[1.5px] border-white/45 text-white text-[11px] px-2.5 py-1.5 rounded whitespace-nowrap shadow-md z-50 font-sans pointer-events-none">
-                  Ask AI Mode in Google Search
-                </div>
-              </div>
+              {/* AI Mode integrated button with exact Google AI icon, glow and mouse tracking border */}
+              <AiModeButton
+                onClick={() => onSearch('ai-mode')}
+                isAiMode={isAiMode}
+              />
             </div>
           </div>
         </div>
@@ -330,15 +310,12 @@ export default function SearchHomepage({ onSearch }: SearchHomepageProps) {
       {/* Footer */}
       <footer className="bg-[#171717] border-t border-[#303134] text-xs text-gray-400 py-3 px-6 flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
         <div className="flex space-x-4">
-          <span>India</span>
+          <span>{country || 'Location unavailable'}</span>
         </div>
         <div className="flex space-x-6">
           <span>Terms & Credits</span>
         </div>
       </footer>
-
-      {/* Connection popup modal */}
-      <VisitorModal onDismiss={() => setCanStartTyping(true)} />
     </div>
   );
 }

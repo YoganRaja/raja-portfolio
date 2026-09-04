@@ -7,6 +7,7 @@ interface EducationSiteProps {
   onBack: () => void;
   onSwitchProgram?: (program: 'mba' | 'be') => void;
   onNavigate?: (path: string, q?: string) => void;
+  onOpenResumeModal?: () => void;
 }
 
 const FAQS = [
@@ -28,17 +29,17 @@ const FAQS = [
   }
 ];
 
-export default function EducationSite({ program, onBack, onNavigate }: EducationSiteProps) {
+export default function EducationSite({ program, onBack, onNavigate, onOpenResumeModal }: EducationSiteProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const mbaData = {
     degree: 'Master of Business Administration (MBA)',
-    specialization: 'Marketing & Digital Business Strategy',
+    specialization: 'Marketing & Digital Business',
     institutionLine: 'SRM Easwari Engineering College (SRM Group of Institutions), Chennai, Tamil Nadu, India.',
     dates: '2023–2025',
-    score: 'CGPA 8.3',
+    score: 'First Class',
     about: "Easwari Engineering College is an autonomous institution under the SRM Group of Institutions. The MBA program covered core marketing fundamentals alongside digital marketing analytics, consumer behavior, and brand strategy. It's the mix that shaped how I approach SEO and growth work today.",
-    paperTitle: 'The Study of Significance of Digital Marketing Tools(Channels) in the Promotion of E-Commerce Websites',
+    paperTitle: 'SIGNIFICANCE OF DIGITAL MARKETING TOOLS IN THE PROMOTION OF E-COMMERCE WEBSITES',
     paperConference: "Presented at the First International Conference on Management Practices in AI Driven Business World (ICMPAIDBW 2025), organized by the Department of Management Studies, St. Joseph's Institute of Technology, Chennai, February 20 to 21, 2025.",
     paperDescription: 'A study examining how digital marketing channels such as SEO, PPC, social media, and email marketing contribute to promoting e-commerce businesses and driving customer engagement online.',
     publishedTitle: 'A Study on Consumer Behavior in Real Estate Marketing at Harini Promoters Pvt. Ltd.',
@@ -60,16 +61,20 @@ export default function EducationSite({ program, onBack, onNavigate }: Education
     specialization: 'Computer Science and Engineering',
     institutionLine: 'Anna University Regional Campus, Tirunelveli, Tamil Nadu, India.',
     dates: '2019–2023',
-    score: 'First Class',
+    score: 'Second Class',
     about: 'The Regional Campus of Anna University in Tirunelveli is an engineering department recognized for computational research and software engineering. This technical education provides the engineering foundation required for web technology, DOM rendering, database management, and Technical SEO.',
     projects: [
       {
+        title: 'Campus Automation & Visibility Portal',
+        description: 'Designed and developed a campus automation system featuring relational SQL schemas, fast server-side response times, Core Web Vitals optimizations, and robots.txt configurations to enhance digital campus portal performance.'
+      },
+      {
         title: 'SOS Mobile App',
-        description: 'An Android app built as my B.E. mini project, designed to help users trigger an emergency alert quickly, sharing their location with emergency contacts in one tap.'
+        description: 'An Android app built as a mini project, designed to help users trigger an emergency alert quickly, sharing their location with emergency contacts in one tap.'
       },
       {
         title: 'Smart Fashion Recommendation Web App',
-        description: 'My final year main project, built with a team. It let users try on outfits live using their device camera as a mirror, powered by AR, paired with a recommendation engine to suggest styles based on what they picked.'
+        description: 'Built with a team, letting users try on outfits live using their device camera, powered by AR, paired with a recommendation engine to suggest styles based on user preferences.'
       }
     ],
     coursework: [
@@ -108,7 +113,9 @@ export default function EducationSite({ program, onBack, onNavigate }: Education
 
           <div className="flex items-center space-x-3">
             <a 
-              href={`mailto:${PERSONAL_INFO.email}`}
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=yoganraja.126@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg border border-white/10 bg-white/10 hover:bg-white/20 text-xs font-semibold text-white transition-all cursor-pointer shadow-xs"
               title="Contact Me via Email"
             >
@@ -161,7 +168,7 @@ export default function EducationSite({ program, onBack, onNavigate }: Education
               </button>
 
               <button
-                onClick={() => window.print()}
+                onClick={() => onOpenResumeModal ? onOpenResumeModal() : window.print()}
                 className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-md font-semibold text-sm sm:text-base rounded-xl transition-all inline-flex items-center gap-2 cursor-pointer"
               >
                 <FileText size={18} />
@@ -322,7 +329,7 @@ export default function EducationSite({ program, onBack, onNavigate }: Education
                 <ArrowUpRight size={18} />
               </button>
               <button
-                onClick={() => window.print()}
+                onClick={() => onOpenResumeModal ? onOpenResumeModal() : window.print()}
                 className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-md font-semibold text-sm sm:text-base rounded-xl transition-all inline-flex items-center gap-2 cursor-pointer"
               >
                 <FileText size={18} />
@@ -433,7 +440,7 @@ export default function EducationSite({ program, onBack, onNavigate }: Education
                 <ArrowUpRight size={18} />
               </button>
               <button
-                onClick={() => window.print()}
+                onClick={() => onOpenResumeModal ? onOpenResumeModal() : window.print()}
                 className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-md font-semibold text-sm sm:text-base rounded-xl transition-all inline-flex items-center gap-2 cursor-pointer"
               >
                 <FileText size={18} />
@@ -491,7 +498,9 @@ export default function EducationSite({ program, onBack, onNavigate }: Education
             
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href={`mailto:${PERSONAL_INFO.email}`}
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=yoganraja.126@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-xs font-semibold text-zinc-800 transition-all cursor-pointer shadow-2xs"
               >
                 <Mail size={15} className="text-zinc-900" />
@@ -521,9 +530,9 @@ export default function EducationSite({ program, onBack, onNavigate }: Education
               </a>
             </div>
           </div>
-          <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center text-xs text-zinc-400 font-mono gap-2">
+          <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 font-sans font-medium tracking-normal gap-2">
             <div>© {new Date().getFullYear()} {PERSONAL_INFO.fullName}</div>
-            <div>{PERSONAL_INFO.location} • {PERSONAL_INFO.email}</div>
+            <div>{PERSONAL_INFO.email}</div>
           </div>
         </footer>
 

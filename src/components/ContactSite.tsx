@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  ArrowLeft, Mail, Phone, MapPin, Linkedin, Github, FileText, 
+  ArrowLeft, Mail, MapPin, Linkedin, Github, FileText, 
   Calendar, Clock, CheckCircle, ShieldAlert, Award, AlertCircle
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data';
@@ -262,24 +262,15 @@ export default function ContactSite({ onBack }: ContactSiteProps) {
               
               <div className="space-y-3.5">
                 <a 
-                  href={`mailto:${PERSONAL_INFO.email}`}
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=yoganraja.126@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 bg-gray-50 border border-gray-100 rounded-xl hover:border-blue-300 transition-all text-xs text-gray-600 group"
                 >
                   <Mail className="text-blue-500 group-hover:scale-105 transition-transform" size={16} />
                   <div>
                     <div className="text-[9px] font-mono uppercase text-gray-400">Secure Email</div>
                     <div className="font-bold text-gray-800 tracking-tight select-all truncate">{PERSONAL_INFO.email}</div>
-                  </div>
-                </a>
-
-                <a 
-                  href={`tel:${PERSONAL_INFO.phone}`}
-                  className="flex items-center gap-3 p-3 bg-gray-50 border border-gray-100 rounded-xl hover:border-blue-300 transition-all text-xs text-gray-600 group"
-                >
-                  <Phone className="text-blue-500 group-hover:scale-105 transition-transform" size={16} />
-                  <div>
-                    <div className="text-[9px] font-mono uppercase text-gray-400">Mobile Hotline</div>
-                    <div className="font-bold text-gray-800 tracking-tight font-mono select-all truncate">{PERSONAL_INFO.phone}</div>
                   </div>
                 </a>
 
